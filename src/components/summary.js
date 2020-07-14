@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
+import PropTypes from "prop-types";
 const SummaryStyled = styled.div`
   ul {
     list-style: none;
@@ -57,5 +57,11 @@ const Summary = ({ safe }) => {
     </SummaryStyled>
   );
 };
-
+Summary.propTypes = {
+  safe: PropTypes.shape({
+    brand: PropTypes.string.isRequired,
+    year: PropTypes.number.isRequired,
+    plan: PropTypes.string.isRequired,
+  }),
+};
 export default Summary;

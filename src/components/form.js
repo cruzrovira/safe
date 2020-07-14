@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
-
+import PropTypes from "prop-types";
 const FormStyled = styled.form`
   label {
     display: block;
@@ -118,5 +118,7 @@ const Form = ({ addSafe }) => {
     </FormStyled>
   );
 };
-
+Form.propTypes = {
+  addSafe: PropTypes.func.isRequired,
+};
 export default Form;
