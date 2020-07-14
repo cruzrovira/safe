@@ -1,25 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import styled from "styled-components";
+import Header from "./components/header";
+import Form from "./components/form";
+import Summary from "./components/summary";
+const CardStyled = styled.div`
+  background: #f1f1f1;
+  margin: auto;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 0px 10px 15px 10px;
+
+  @media screen and (min-width: 400px) {
+    width: 400px;
+  }
+`;
 
 function App() {
+  let [safe, setSafe] = useState(null);
+  const addSafe = (item) => {
+    setSafe(item);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CardStyled>
+      <Header title={"Fade."} />
+      <Form addSafe={addSafe} />
+      {safe ? <Summary safe={safe} /> : null}
+    </CardStyled>
   );
 }
 
